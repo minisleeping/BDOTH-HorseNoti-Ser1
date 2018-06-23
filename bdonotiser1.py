@@ -4,6 +4,8 @@ from discord import Game
 from discord.ext.commands import Bot
 import datetime
 import os
+import pytz
+tz = pytz.timezone('Asia/Bangkok')
 
 
 counter = -6
@@ -52,7 +54,7 @@ async def on_message(message):
                     Trole = discord.utils.find(lambda r: r.name == tier.upper(), message.server.roles)
                     AT = discord.utils.find(lambda r: r.name == 'AllTier', message.server.roles)
                     counter = int(time)
-                    now = datetime.datetime.now()
+                    now = datetime.datetime.now(tz)
                     hour = (now.hour)
                     mi = (now.minute)
                     h = int(hour)
